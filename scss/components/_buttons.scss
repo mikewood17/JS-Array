@@ -1,0 +1,38 @@
+// =========================================
+// Buttons
+// =========================================
+
+// Base button
+
+.btn {
+    font-size: medium;
+    height: 56px;
+    width: 150px;
+    margin-top: 40px;
+    padding: .625em 1.25em;
+    border-radius: .35em;
+    outline: none;
+    border: none;
+    background-color: $color-accent;
+    color: $white;
+    &:hover{
+        background-color:  rgb(204, 139, 107);
+    }
+}
+
+.form-control{
+    font-size: $base__font-size;
+    font-family: $font-family--primary;
+    height: 47px;
+    padding: 5px 15px;
+    border-color: #ccc;
+    border: 1px solid #e5e5e5;
+    display: block;
+    width: 100%;
+    &:focus{
+        border-color: $color-accent;
+        box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%), 
+        0 0 8px rgba(231, 89, 23, 0.6);
+        outline: none;
+    }
+}

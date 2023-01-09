@@ -1,0 +1,36 @@
+// =================================================
+// Utilities
+// =================================================
+
+@if variable-exists(font-url--google) {
+    @import url($font-url--google);
+}
+
+// em value calculation
+
+@function em($target, $context: $base__font-size) {
+    @return calc($target / $context) * 1em;
+}
+
+// media queries
+
+@media (min-width: $breakpoint-xxs){
+
+}
+@media (min-width: $breakpoint-xs){
+    
+}
+@media (min-width: $breakpoint-sm){
+    
+}
+@media (min-width: $breakpoint-md){
+    .input-wrapper, .selection-wrapper{
+      max-width: 720px;  
+    }
+}
+@media (min-width: $breakpoint-lg){
+    
+}
+@media (min-width: $breakpoint-xl){
+    
+}
