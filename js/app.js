@@ -4,17 +4,43 @@
 
 // Variables
 
-const imgContainer = document.querySelector('.img-container');
+let imgContainer = document.querySelector('.img-container');
+let imgUrl;
+const refresh = document.querySelector('.refresh-btn');
+const selectImg = document.querySelector('.submit-btn');
+const savedImgContainer = document.querySelector('.stored-img');
+const emailContainer = document.querySelector('.email-stored');
 
-// Fetch functions
 
-fetch('https://picsum.photos/v2/list')
-.then( response => response.json())
-.then(data => generateImage(data.message))
+// functions
 
-// Helper functions
+function generateImage() {
+    fetch('https://picsum.photos/200').then( response => {
+        imgUrl = response.url;
+        let html = `<img src='${imgUrl}' alt='random img'>`;
+        imgContainer.innerHTML = html;
+    })
+}
 
-function generateImage(data) {
-    const html = `<img src='${data}' alt='random img'>`;
-    imgContainer.innerHTML = html;
+$(window).on('load', generateImage);
+
+// refresh button
+
+refresh.addEventListener('click', generateImage);
+
+// array
+
+const selectedImage = [];
+
+function addEmail(){
+    selectedImage.push(email.value);
+    emailContainer.innerHTML = `<h3>${email.value}<h3>`;
+}
+
+function addImage(){
+    selectedImage.push(imgUrl);
+    // savedImgContainer.innerHTML = `<img src='${imgUrl}' alt='random img'>`;
+    var imgElements= "";
+    selectedImage.forEach(url => imgElements += `<img src='${url}' alt='random img'>`);
+    savedImgContainer.innerHTML = imgElements;
 }

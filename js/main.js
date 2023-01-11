@@ -7,7 +7,7 @@
 // Variables
 
 const email = document.querySelector('.email');
-const emailValue = email.value;
+// const emailValue = email.value;
 const submit = document.querySelector('.submit-btn');
 
 var errorCount = 0;
@@ -30,14 +30,17 @@ submit.addEventListener('click', (e) => {
 })
 
 function checkInputs() {
-    if(emailValue != undefined && emailValue === '') {
+    console.log(email.value);
+    if(email.value != undefined && email.value === '') {
         console.log('email cannot be blank');
         errorCount++;
-    } else if (!isEmail(emailValue)) {
+    } else if (!isEmail(email.value)) {
         console.log('this is not a valid email');
         errorCount++;
     } else {
-        console.log('success')
+        console.log('success');
+        addEmail();
+        addImage();
     }
 
     if(errorCount !=0) {
