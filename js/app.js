@@ -42,8 +42,10 @@ function addImg(){
     selectedImage.push(imgUrl);
     var imgElements= "";
     for(i=0; i<selectedImage.length; i++) {
+        if(i % 2 !==0){
         imgElements += `<img src='`+ selectedImage[i] +`' alt='random img'>`;
         console.log(selectedImage);
+        }
     }
     savedImgContainer.innerHTML = imgElements;
 }
