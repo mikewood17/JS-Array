@@ -8,8 +8,7 @@
 
 const email = document.querySelector('.email');
 // const emailValue = email.value;
-const submit = document.querySelector('.email-submit_btn');
-const selectImg = document.querySelector('.submit-btn');
+const submit = document.querySelector('.submit-btn');
 
 var errorCount = 0;
 
@@ -49,18 +48,19 @@ submit.addEventListener('click', (e) => {
         e.preventDefault();
     } else {
         console.log('success');
-    }
-})
-
-
-function checkBeforeAdd() {
-    if(checkInputs()) {
         addImg();
-    } else {
-        console.log('Please add an email before choosing an image');
     }
-}
-
-selectImg.addEventListener('click', function() {
-    checkBeforeAdd();
 })
+
+
+// function checkBeforeAdd() {
+//     if(checkInputs()) {
+//         addImg();
+//     } else {
+//         console.log('Please add an email before choosing an image');
+//     }
+// }
+
+// .addEventListener('click', function() {
+//     checkBeforeAdd();
+// })
