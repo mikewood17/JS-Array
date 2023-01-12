@@ -9,7 +9,6 @@
 let imgContainer = document.querySelector('.img-container');
 let imgUrl;
 const refresh = document.querySelector('.refresh-btn');
-const selectImg = document.querySelector('.submit-btn');
 const savedImgContainer = document.querySelector('.stored-img');
 const emailContainer = document.querySelector('.email-stored');
 
@@ -41,9 +40,11 @@ function addEmail(){
 
 function addImg(){
     selectedImage.push(imgUrl);
-    savedImgContainer.innerHTML = `<img src='${imgUrl}' alt='random img'>`;
     var imgElements= "";
-    selectedImage.forEach(url => imgElements += `<img src='${url}' alt='random img'>`);
+    for(i=0; i<selectedImage.length; i++) {
+        imgElements += `<img src='`+ selectedImage[i] +`' alt='random img'>`;
+        console.log(selectedImage);
+    }
     savedImgContainer.innerHTML = imgElements;
 }
 

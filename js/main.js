@@ -33,6 +33,7 @@ function checkInputs() {
     } else {
         console.log('success');
         addEmail();
+        errorCount = 0;
     }
 
     if(errorCount !=0) {
