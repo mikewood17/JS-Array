@@ -143,6 +143,13 @@ ul {
 }
 .button-container {
   display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.refresh-btn__container {
+  display: flex;
   flex-direction: column;
   align-items: center;
 }

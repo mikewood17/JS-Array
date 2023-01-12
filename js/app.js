@@ -2,6 +2,8 @@
 // App,js
 // ===========================================================
 
+
+
 // Variables
 
 let imgContainer = document.querySelector('.img-container');
@@ -17,7 +19,7 @@ const emailContainer = document.querySelector('.email-stored');
 function generateImage() {
     fetch('https://picsum.photos/200').then( response => {
         imgUrl = response.url;
-        let html = `<img src='${imgUrl}' alt='random img'>`;
+        let html = `<img src='${imgUrl}' class='current-img' alt='random img'>`;
         imgContainer.innerHTML = html;
     })
 }
@@ -37,10 +39,17 @@ function addEmail(){
     emailContainer.innerHTML = `<h3>${email.value}<h3>`;
 }
 
-function addImage(){
+function addImg(){
     selectedImage.push(imgUrl);
-    // savedImgContainer.innerHTML = `<img src='${imgUrl}' alt='random img'>`;
+    savedImgContainer.innerHTML = `<img src='${imgUrl}' alt='random img'>`;
     var imgElements= "";
     selectedImage.forEach(url => imgElements += `<img src='${url}' alt='random img'>`);
     savedImgContainer.innerHTML = imgElements;
 }
+
+// for(i=0, i<selectedImage.length, i++) {
+//     if(i = odd) {
+//     <img src = [i]>
+//     }
+//     }
+
