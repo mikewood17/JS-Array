@@ -34,25 +34,47 @@ refresh.addEventListener('click', generateImage);
 const selectedImage = [];
 
 function addEmail(){
-    selectedImage.push(email.value);
-    emailContainer.innerHTML = `<h3>${email.value}<h3>`;
+    emailContainer.innerHTML = `<h3 class='email-inputted'>${email.value}<h3>`;
 }
 
-function addImg(){
-    selectedImage.push(imgUrl);
-    var imgElements= "";
-    for(i=0; i<selectedImage.length; i++) {
-        if(i % 2 !==0){
-        imgElements += `<img src='`+ selectedImage[i] +`' alt='random img'>`;
-        console.log(selectedImage);
+var imgElements= "";
+
+// function displayImg(selectedImage){
+//     imgElements = `<img src="${selectedImage[1]}" alt="random img" class="selected-image">`;
+//     savedImgContainer.innerHTML = imgElements;
+// }
+
+// Your displayImg function would look like this...(changed the name cause its a bit different now)
+function displayImagesForEmail(storedImages) {
+	// Before looping through the images we need want to empty the container so the images don't stack up 
+	$(savedImgContainer).empty();
+	// Now we loop through each image passed to the function and append it to the div
+	$.each(storedImages, function (i, img) {
+		$(savedImgContainer).append("<img src='" + img + "' alt='random img' class='selected-image'>");
+	});
+}
+
+function addImg(){  
+   if( selectedImage.length == 0) {
+        selectedImage.push([email.value,[imgUrl]]);
+   } else {
+        for(i=0; i<selectedImage.length; i++) {
+                console.log(email.value, selectedImage[i][1]);
+            if (email.value === selectedImage[i][0]) {
+                selectedImage[i][1].push(imgUrl);
+                // displayImg(selectedImage[i][1]);
+                displayImagesForEmail(selectedImage[i][1]);
+                console.log('if succeed');
+            } else {
+                selectedImage.push([email.value,[imgUrl]]);
+                // displayImg(selectedImage[i][1]);
+                displayImagesForEmail(selectedImage[i][1]);
+                console.log('else succeed');
+            }
+            return;
         }
-    }
-    savedImgContainer.innerHTML = imgElements;
+   }   
 }
 
-// for(i=0, i<selectedImage.length, i++) {
-//     if(i = odd) {
-//     <img src = [i]>
-//     }
-//     }
-
+// Inside addImg wherever you need to display the images for an email
+// displayImagesForEmail(selectedImage[i]);

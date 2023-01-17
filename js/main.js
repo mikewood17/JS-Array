@@ -22,7 +22,6 @@ function isEmail(email){
 
 
 function checkInputs() {
-    console.log(email.value);
     if(email.value != undefined && email.value === '') {
         console.log('email cannot be blank');
         errorCount++;
@@ -30,7 +29,6 @@ function checkInputs() {
         console.log('this is not a valid email');
         errorCount++;
     } else {
-        console.log('success');
         addEmail();
         errorCount = 0;
     }
@@ -47,7 +45,6 @@ submit.addEventListener('click', (e) => {
     if (!test) {
         e.preventDefault();
     } else {
-        console.log('success');
         addImg();
     }
 })

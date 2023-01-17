@@ -4,6 +4,12 @@
     max-width: 720px;
   }
 }
+.email-inputted {
+  color: #fff;
+  font-weight: 400;
+  font-size: 1.7em;
+}
+
 .btn {
   font-size: medium;
   height: 56px;
@@ -39,6 +45,10 @@
 .current-img {
   width: 400px;
   height: 400px;
+}
+
+.selected-image {
+  margin: 5px;
 }
 
 * {
