@@ -60,7 +60,7 @@ function addImg(){
    } else {
         for(i=0; i<selectedImage.length; i++) {
                 console.log(email.value, selectedImage[i][1]);
-            if (email.value === selectedImage[i][0]) {
+            if (email.value == selectedImage[i][0]) {
                 selectedImage[i][1].push(imgUrl);
                 // displayImg(selectedImage[i][1]);
                 displayImagesForEmail(selectedImage[i][1]);
@@ -68,9 +68,11 @@ function addImg(){
             } else {
                 selectedImage.push([email.value,[imgUrl]]);
                 // displayImg(selectedImage[i][1]);
-                displayImagesForEmail(selectedImage[i][1]);
+                // displayImagesForEmail(selectedImage[i][1]);
+                selectedImage.push([email.value, []]);
+                selectedImage[i][1].push(imgUrl);
                 console.log('else succeed');
-            }
+            } 
             return;
         }
    }   
