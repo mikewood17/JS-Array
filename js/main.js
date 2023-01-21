@@ -7,7 +7,6 @@
 // Variables
 
 const email = document.querySelector('.email');
-// const emailValue = email.value;
 const submit = document.querySelector('.submit-btn');
 
 var errorCount = 0;
@@ -19,7 +18,6 @@ function isEmail(email){
     return /^[a-zA-Z0-9.!#$%&'+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:.[a-zA-Z0-9-]+)$/.test(email);
 
 }
-
 
 function checkInputs() {
     if(email.value != undefined && email.value === '') {
@@ -45,19 +43,6 @@ submit.addEventListener('click', (e) => {
     if (!test) {
         e.preventDefault();
     } else {
-        addImg();
+        addImgToEmail(email.value);
     }
 })
-
-
-// function checkBeforeAdd() {
-//     if(checkInputs()) {
-//         addImg();
-//     } else {
-//         console.log('Please add an email before choosing an image');
-//     }
-// }
-
-// .addEventListener('click', function() {
-//     checkBeforeAdd();
-// })

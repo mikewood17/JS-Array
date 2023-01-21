@@ -2,8 +2,6 @@
 // App,js
 // ===========================================================
 
-
-
 // Variables
 
 let imgContainer = document.querySelector('.img-container');
@@ -11,6 +9,13 @@ let imgUrl;
 const refresh = document.querySelector('.refresh-btn');
 const savedImgContainer = document.querySelector('.stored-img');
 const emailContainer = document.querySelector('.email-stored');
+var emailsWithImages = {};
+
+$(window).on('load', generateImage);
+
+// refresh button
+
+refresh.addEventListener('click', generateImage);
 
 
 // functions
@@ -23,60 +28,64 @@ function generateImage() {
     })
 }
 
-$(window).on('load', generateImage);
-
-// refresh button
-
-refresh.addEventListener('click', generateImage);
-
-// array
-
-const selectedImage = [];
 
 function addEmail(){
     emailContainer.innerHTML = `<h3 class='email-inputted'>${email.value}<h3>`;
 }
 
-var imgElements= "";
-
-// function displayImg(selectedImage){
-//     imgElements = `<img src="${selectedImage[1]}" alt="random img" class="selected-image">`;
-//     savedImgContainer.innerHTML = imgElements;
-// }
-
-// Your displayImg function would look like this...(changed the name cause its a bit different now)
+// Function that displays all of the images for a certain email.
+// The array of image urls for said email are passed into the method and become the storedImages array. 
 function displayImagesForEmail(storedImages) {
-	// Before looping through the images we need want to empty the container so the images don't stack up 
+	// First empty the savedImgContainer so that no images for other emails remain in the box. 
 	$(savedImgContainer).empty();
-	// Now we loop through each image passed to the function and append it to the div
+	
+	// Loop through the storedImages array and for each one append a picture to the now empty savedImgContainer div.
 	$.each(storedImages, function (i, img) {
 		$(savedImgContainer).append("<img src='" + img + "' alt='random img' class='selected-image'>");
 	});
 }
 
-function addImg(){  
-   if( selectedImage.length == 0) {
-        selectedImage.push([email.value,[imgUrl]]);
-   } else {
-        for(i=0; i<selectedImage.length; i++) {
-                console.log(email.value, selectedImage[i][1]);
-            if (email.value == selectedImage[i][0]) {
-                selectedImage[i][1].push(imgUrl);
-                // displayImg(selectedImage[i][1]);
-                displayImagesForEmail(selectedImage[i][1]);
-                console.log('if succeed');
-            } else {
-                selectedImage.push([email.value,[imgUrl]]);
-                // displayImg(selectedImage[i][1]);
-                // displayImagesForEmail(selectedImage[i][1]);
-                selectedImage.push([email.value, []]);
-                selectedImage[i][1].push(imgUrl);
-                console.log('else succeed');
-            } 
-            return;
-        }
-   }   
+// Function that adds the email to the emailsWithImages object. 
+// email that is passed to the method is from main.js
+function addImgToEmail(email) {
+	// Call method to check if the email already exists in emailsWithImages and assign it to a variable. 
+	var isNewEmail = checkIfEmailExists(email);
+	
+	if (isNewEmail) {
+		// If the email exists (isNewEmail == true) then we get the current emailsWithImages object 
+		var currentEmailImgs = emailsWithImages[email];
+		
+		// Then push the new imgUrl to the array variable we just made
+		currentEmailImgs.push(imgUrl);
+		
+		// Reassign the value of the images array in the emailsWithImages object to the new one we created (so it includes the new urls). 
+		emailsWithImages[email] = currentEmailImgs;
+	} else {
+		// If the email doesn't exist then just create a new entry in the object. 
+		// The email is the key and the value is the imgUrl in an array so we can add more to it in the future. 
+		emailsWithImages[email] = [imgUrl];
+	}
+	
+	// Finally we call the function to display the images in the orange box. 
+	// Passing emailsWithImages[email] to the function means we just send the array of image urls associated with the certain email.  
+	displayImagesForEmail(emailsWithImages[email]);
 }
 
-// Inside addImg wherever you need to display the images for an email
-// displayImagesForEmail(selectedImage[i]);
+// Function that checks if an email is already being used inside the emailsWithImages object
+function checkIfEmailExists(newEmail) {
+	// Initalise a boolean set to false which will be returned at the end of the function. 
+	var emailExists = false;
+	
+	// JQuery loop through the emailsWithImages object. The actual email key is represented by i, imgs is the imgUrls array. 
+	$.each(emailsWithImages, function (i, imgs) {
+		// If the email passed to the function is the same as the one in i. 
+		// Set the boolean email exists to true.
+		if (newEmail == i) {
+			emailExists = true;
+		}
+	});
+	// End of the function returns the emailExists variable. 
+	// If there were no matches in the Jquery loop then it will remain false.
+	return emailExists;
+}
+
