@@ -26,7 +26,6 @@
 
     width: 100%;
     
-    border: 3px solid $color-primary;
     padding: 20px;
     border-radius: 20px;
     box-shadow: $color-shadow;
@@ -40,7 +39,6 @@
 
     width: 100%;
     
-    border: 3px solid $color-primary;
     padding: 20px;
     padding-bottom: 50px;
     border-radius: 20px;
@@ -68,6 +66,10 @@
     }
 }
 
+.img-container{
+    margin-top: 50px;
+}
+
 .button-container{
     display: flex;
     flex-direction: row;
@@ -89,7 +91,7 @@
 
 .email-input i {
     position: absolute;
-    top: 90px;
+    top: 115px;
     right:60px;
     visibility: hidden;
 }

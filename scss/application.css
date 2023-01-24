@@ -6,8 +6,8 @@
 }
 .email-inputted {
   color: #fff;
-  font-weight: 400;
-  font-size: 1.7em;
+  font-weight: 300;
+  font-size: 1.5625em;
 }
 
 .btn {
@@ -77,8 +77,8 @@ h1 {
 
 h2 {
   font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: 400;
-  font-size: 1.5em;
+  font-weight: 300;
+  font-size: 2em;
 }
 
 a {
@@ -114,7 +114,6 @@ ul {
   flex-wrap: wrap;
   background-color: #00539c;
   width: 100%;
-  border: 3px solid #393939;
   padding: 20px;
   border-radius: 20px;
   box-shadow: rgba(11, 11, 11, 0.2);
@@ -126,7 +125,6 @@ ul {
   flex-wrap: wrap;
   background-color: #eea47f;
   width: 100%;
-  border: 3px solid #393939;
   padding: 20px;
   padding-bottom: 50px;
   border-radius: 20px;
@@ -151,6 +149,10 @@ ul {
     height: 300px;
   }
 }
+.img-container {
+  margin-top: 50px;
+}
+
 .button-container {
   display: flex;
   flex-direction: row;
@@ -174,7 +176,7 @@ ul {
 
 .email-input i {
   position: absolute;
-  top: 90px;
+  top: 115px;
   right: 60px;
   visibility: hidden;
 }
