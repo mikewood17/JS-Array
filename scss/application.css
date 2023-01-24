@@ -169,6 +169,34 @@ ul {
   flex-direction: column;
   align-items: center;
   color: #fff;
+  position: relative;
+}
+
+.email-input i {
+  position: absolute;
+  top: 90px;
+  right: 60px;
+  visibility: hidden;
+}
+
+.email-input small {
+  visibility: hidden;
+  left: 0;
+}
+
+.email-input.success i.fa-circle-check {
+  color: #5ece7f;
+  visibility: visible;
+}
+
+.email-input.error i.fa-circle-exclamation {
+  color: #eb131a;
+  visibility: visible;
+}
+
+.email-input.error small {
+  color: #eb131a;
+  visibility: visible;
 }
 
 .selection-header {

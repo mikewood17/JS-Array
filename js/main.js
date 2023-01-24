@@ -8,6 +8,8 @@
 
 const email = document.querySelector('.email');
 const submit = document.querySelector('.submit-btn');
+const emailInput = document.querySelector('.email-input');
+const errorMessage = document.querySelector(".error-message");
 
 var errorCount = 0;
 
@@ -21,14 +23,19 @@ function isEmail(email){
 
 function checkInputs() {
     if(email.value != undefined && email.value === '') {
-        console.log('email cannot be blank');
+        emailInput.classList.add('error');
+        errorMessage.innerHTML= 'Email Cannot Be Blank';
         errorCount++;
     } else if (!isEmail(email.value)) {
-        console.log('this is not a valid email');
+        emailInput.classList.add('error');
+        errorMessage.innerHTML= 'This Is Not a Valid Email';
         errorCount++;
     } else {
         addEmail();
         errorCount = 0;
+        emailInput.classList.remove('error');
+        emailInput.classList.add('success');
+        errorMessage.innerHTML= '';
     }
 
     if(errorCount !=0) {

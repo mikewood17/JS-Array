@@ -84,6 +84,34 @@
     flex-direction: column;
     align-items: center;
     color: $white;
+    position: relative;
+}
+
+.email-input i {
+    position: absolute;
+    top: 90px;
+    right:60px;
+    visibility: hidden;
+}
+
+.email-input small {
+    visibility: hidden;
+    left: 0;
+}
+
+.email-input.success i.fa-circle-check{
+    color: $success;
+    visibility: visible;
+}
+
+.email-input.error i.fa-circle-exclamation{
+    color: $error;
+    visibility: visible;
+}
+
+.email-input.error small{
+    color: $error;
+    visibility: visible;
 }
 
 .selection-header{
