@@ -43,8 +43,8 @@
 }
 
 .current-img {
-  width: 400px;
-  height: 400px;
+  width: 100%;
+  height: 100%;
 }
 
 .selected-image {
@@ -101,6 +101,12 @@ ul {
   margin-bottom: 50px;
 }
 
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .main-wrapper {
   display: flex;
   flex-direction: column;
@@ -136,7 +142,7 @@ ul {
   color: #797e83;
 }
 
-.img-container img {
+.img-container {
   width: 252px;
   height: 252px;
   border-radius: 8px;
@@ -144,7 +150,7 @@ ul {
 }
 
 @media (min-width: 768px) {
-  .img-container img {
+  .img-container {
     width: 300px;
     height: 300px;
   }
@@ -174,6 +180,15 @@ ul {
   position: relative;
 }
 
+@media (max-width: 576px) {
+  .email-container h2 {
+    font-size: 1.5em;
+  }
+  .email-input i {
+    top: 90px !important;
+    right: 30px !important;
+  }
+}
 .email-input i {
   position: absolute;
   top: 115px;
@@ -192,15 +207,29 @@ ul {
 }
 
 .email-input.error i.fa-circle-exclamation {
-  color: #eb131a;
+  color: #ff0000;
   visibility: visible;
 }
 
 .email-input.error small {
-  color: #eb131a;
+  color: #fff;
   visibility: visible;
 }
 
 .selection-header {
   color: #fff;
+}
+
+.stored-img {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+@media (min-width: 576px) {
+  .stored-img {
+    flex-direction: row;
+    justify-content: center;
+  }
 }/*# sourceMappingURL=application.css.map */

@@ -18,17 +18,17 @@ var errorCount = 0;
 
 function isEmail(email){
     return /^[a-zA-Z0-9.!#$%&'+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:.[a-zA-Z0-9-]+)$/.test(email);
-
+    
 }
 
 function checkInputs() {
     if(email.value != undefined && email.value === '') {
         emailInput.classList.add('error');
-        errorMessage.innerHTML= 'Email Cannot Be Blank';
+        errorMessage.innerHTML= 'Email cannot be blank';
         errorCount++;
     } else if (!isEmail(email.value)) {
         emailInput.classList.add('error');
-        errorMessage.innerHTML= 'This Is Not a Valid Email';
+        errorMessage.innerHTML= 'This is not a valid email';
         errorCount++;
     } else {
         addEmail();

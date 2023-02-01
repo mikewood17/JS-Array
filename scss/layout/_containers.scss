@@ -10,7 +10,11 @@
     padding-right: 15px;
     margin-bottom: 50px;
 }
-
+.main-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 // Wrapper
 .main-wrapper{
     display: flex;
@@ -52,7 +56,7 @@
     color: $grey;
 }
 
-.img-container img{
+.img-container {
     width: 252px;
     height: 252px;
     border-radius: 8px;
@@ -60,7 +64,7 @@
 }
 
 @media (min-width: $breakpoint-md) {
-    .img-container img{
+    .img-container {
         width: 300px;
         height: 300px;
     }
@@ -89,6 +93,18 @@
     position: relative;
 }
 
+@media (max-width: $breakpoint-sm) {
+    .email-container h2 {
+        font-size: 1.5em;
+    }
+
+    .email-input i {
+        top: 90px !important;
+        right:30px !important; 
+    }
+
+}
+
 .email-input i {
     position: absolute;
     top: 115px;
@@ -112,10 +128,24 @@
 }
 
 .email-input.error small{
-    color: $error;
+    color: $white;
     visibility: visible;
 }
 
 .selection-header{
     color: $white;
+}
+
+.stored-img{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+@media (min-width: $breakpoint-sm) {
+    .stored-img{
+        flex-direction: row;
+        justify-content: center;
+    }
 }
