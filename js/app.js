@@ -55,6 +55,7 @@ function addImgToEmail(email) {
 	var isExistingImg = checkIfImageExists(email, imgUrl);
 	
 if (isExistingImg) {
+	emailInput.classList.remove('success');
 	emailInput.classList.add('error');
 	errorMessage.innerHTML= 'Image has already been selected.';
 	errorCount++;
