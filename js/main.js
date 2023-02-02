@@ -66,10 +66,10 @@ function closeDropDown() {
     dropContent.style.visibility = ('hidden');
 }
 dropBtn.addEventListener('click', function(){
-    if (dropContent.style.visibility === 'hidden') {
-        openDropDown();
-    } else {
+    if (dropContent.style.visibility === 'visible') {
         closeDropDown();
+    } else {
+        openDropDown();
     }
 })
 
