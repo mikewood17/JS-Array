@@ -73,6 +73,6 @@ dropBtn.addEventListener('click', function(){
     }
 })
 
-function addEmailToDropDown() {
+// function addEmailToDropDown() {
 
-}
+// }
