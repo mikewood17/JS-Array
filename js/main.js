@@ -73,6 +73,11 @@ dropBtn.addEventListener('click', function(){
     }
 })
 
-// function addEmailToDropDown() {
+function showEmails(dropContent) {
 
-// }
+    $(dropContent).empty();
+
+    $.each(emailsWithImages, function(i, images){
+        $(dropContent).append("<span>" + i +"</span>");
+    });
+}
