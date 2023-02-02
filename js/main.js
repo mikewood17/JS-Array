@@ -10,6 +10,7 @@ const email = document.querySelector('.email');
 const submit = document.querySelector('.submit-btn');
 const emailInput = document.querySelector('.email-input');
 const errorMessage = document.querySelector(".error-message");
+const inputEmails = document.querySelector(".inputted-emails");
 
 var errorCount = 0;
 
@@ -58,26 +59,50 @@ submit.addEventListener('click', (e) => {
 const dropBtn = document.querySelector('.drop-btn');
 const dropContent = document.querySelector('.dropdwn-content');
 
-function openDropDown() {
-    dropContent.style.visibility = ('visible');
-}
+// // function to open drop down
+// function openDropDown() {
+//     dropContent.style.visibility = ('visible');
+// }
 
-function closeDropDown() {
-    dropContent.style.visibility = ('hidden');
-}
-dropBtn.addEventListener('click', function(){
-    if (dropContent.style.visibility === 'visible') {
-        closeDropDown();
-    } else {
-        openDropDown();
-    }
-})
+// //function to close dropdown
+// function closeDropDown() {
+//     dropContent.style.visibility = ('hidden');
+// }
 
+// // event listener for click on dropdown button to call either to close or open menu
+// dropBtn.addEventListener('click', function(){
+//     if (dropContent.style.visibility === 'visible') {
+//         closeDropDown();
+//     } else {
+//         openDropDown();
+//     }
+// })
+
+//function to display the emails into the dropdown
+//// The email are looped through to display into dropdown content
 function showEmails(dropContent) {
 
+    // first empty the content
     $(dropContent).empty();
 
+    // loop through the emails in the array and append a span into the content container
     $.each(emailsWithImages, function(i, images){
-        $(dropContent).append("<span>" + i +"</span>");
+        $(dropContent).append("<option value='" + email + "' class='email'>" + i +"</option>");
     });
+}
+
+// var e = document.getElementById("ddlViewBy");
+// var value = e.value;
+// var text = e.options[e.selectedIndex].text;
+
+$(document).on("change", ".emailSelection", function() {
+	// $(this) gets the input element that the .change is referring to
+	changeEmail($(this));
+});
+
+function changeEmail(emailSelect) {	
+	// gets you the value thats been selected in the 
+	var selectedEmail = emailSelect.find(":selected").val();
+    console.log(selectedEmail);
+	$(".email").val(selectedEmail).change();
 }

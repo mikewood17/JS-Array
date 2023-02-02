@@ -29,6 +29,11 @@ h1 {
     font-weight: $font-weight--light;
     font-size: em(32px);
   }
+  h3{
+    font-family: $font-family--primary;
+    font-weight: $font-weight--light;
+    font-size: em(20px);
+  }
 
   a{
     text-decoration: none;

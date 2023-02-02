@@ -92,15 +92,25 @@
     color: $white;
     position: relative;
 }
-
+.heading-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    h2{
+        margin-bottom: 10px !important;
+    }
+    h3{
+        margin-top: 0px !important;
+    }
+}
 @media (max-width: $breakpoint-sm) {
     .email-container h2 {
         font-size: 1.5em;
     }
 
     .email-input i {
-        top: 90px !important;
-        right:30px !important; 
+        top: 130px !important;
+        right: 35px !important; 
     }
 
     .drop-btn i {
@@ -117,7 +127,7 @@
 
 .email-input i {
     position: absolute;
-    top: 115px;
+    top: 150px;
     right: 75px;
     visibility: hidden;
 }
@@ -154,20 +164,20 @@
 }
 
 .dropdwn-content {
-    position: absolute;
-    background-color: #f9f9f9;
-    width: 242px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-    right: 35px;
-    visibility: hidden;
-    display: flex;
-    flex-direction: column;
-    border-top: 2px solid rgb(167, 167, 167);
-    span{
+    // position: absolute;
+    // background-color: #f9f9f9;
+    // width: 242px;
+    // box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    // z-index: 1;
+    // right: 35px;
+    // // visibility: hidden;
+    // display: flex;
+    // flex-direction: column;
+    // border-top: 2px solid rgb(167, 167, 167);
+    option{
         color: rgb(87, 85, 85);
         padding: 5px;
-        margin-left: 10px;
+        padding-left: 15px;
         &:hover {
           background-color: #f1f1f1;  
           cursor: pointer;

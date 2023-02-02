@@ -76,7 +76,7 @@ if (isExistingImg) {
 			// The email is the key and the value is the imgUrl in an array so we can add more to it in the future. 
 			emailsWithImages[email] = [imgUrl];
 		}
-		
+		console.log(selectedEmail)
 		// Finally we call the function to display the images in the orange box. 
 		// Passing emailsWithImages[email] to the function means we just send the array of image urls associated with the certain email.  
 		displayImagesForEmail(emailsWithImages[email]);
