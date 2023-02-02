@@ -66,10 +66,13 @@ function closeDropDown() {
     dropContent.style.visibility = ('hidden');
 }
 dropBtn.addEventListener('click', function(){
-    if (dropContent.style.visibility == 'hidden') {
+    if (dropContent.style.visibility === 'hidden') {
         openDropDown();
     } else {
         closeDropDown();
     }
 })
 
+function addEmailToDropDown() {
+
+}
