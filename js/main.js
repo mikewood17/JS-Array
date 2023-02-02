@@ -53,3 +53,23 @@ submit.addEventListener('click', (e) => {
         addImgToEmail(email.value);
     }
 })
+
+// drop down menu functions
+const dropBtn = document.querySelector('.drop-btn');
+const dropContent = document.querySelector('.dropdwn-content');
+
+function openDropDown() {
+    dropContent.style.visibility = ('visible');
+}
+
+function closeDropDown() {
+    dropContent.style.visibility = ('hidden');
+}
+dropBtn.addEventListener('click', function(){
+    if (dropContent.style.visibility == 'hidden') {
+        openDropDown();
+    } else {
+        closeDropDown();
+    }
+})
+

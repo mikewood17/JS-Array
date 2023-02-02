@@ -37,3 +37,28 @@
         outline: none;
     }
 }
+
+.drop-btn{
+    height: 47px;
+    width: 30px;
+    position: relative;
+    background-color: #ffffff;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.drop-btn i {
+    color: rgb(87, 85, 85);
+    visibility: visible!important;
+    right: 10px !important;
+    top: 15px !important;
+    font-size: 20px;
+   
+}
+
+.drop-btn:hover .dropdwn-content{
+    visibility: visible;
+}
