@@ -80,7 +80,7 @@ if (isExistingImg) {
 		// Finally we call the function to display the images in the orange box. 
 		// Passing emailsWithImages[email] to the function means we just send the array of image urls associated with the certain email.  
 		displayImagesForEmail(emailsWithImages[email]);
-		showEmails(dropContent);
+		// showEmails(dropContent);
 	}
 }
 
