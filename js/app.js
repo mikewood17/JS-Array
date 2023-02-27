@@ -55,8 +55,9 @@ function addImgToEmail(email) {
 	var isExistingImg = checkIfImageExists(email, imgUrl);
 	
 if (isExistingImg) {
-	emailInput.classList.remove('success');
-	emailInput.classList.add('error');
+	iconContainer.classList.remove('success');
+	iconContainer.classList.add('error');
+	errMsgContainer.classList.add('error');
 	errorMessage.innerHTML= 'Image has already been selected.';
 	errorCount++;
 
@@ -80,7 +81,7 @@ if (isExistingImg) {
 		// Finally we call the function to display the images in the orange box. 
 		// Passing emailsWithImages[email] to the function means we just send the array of image urls associated with the certain email.  
 		displayImagesForEmail(emailsWithImages[email]);
-		// showEmails(dropContent);
+		showEmails(dropContent);
 	}
 }
 

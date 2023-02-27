@@ -7,8 +7,11 @@
 // Variables
 
 const email = document.querySelector('.email');
+const dropEmail = document.querySelector('.drop-email');
 const submit = document.querySelector('.submit-btn');
 const emailInput = document.querySelector('.email-input');
+const iconContainer = document.querySelector('.icon-container');
+const errMsgContainer = document.querySelector('.err-msg_container');
 const errorMessage = document.querySelector(".error-message");
 const inputEmails = document.querySelector(".inputted-emails");
 
@@ -24,18 +27,21 @@ function isEmail(email){
 
 function checkInputs() {
     if(email.value != undefined && email.value === '') {
-        emailInput.classList.add('error');
+        iconContainer.classList.add('error');
+        errMsgContainer.classList.add('error');
         errorMessage.innerHTML= 'Email cannot be blank';
         errorCount++;
     } else if (!isEmail(email.value)) {
-        emailInput.classList.add('error');
+        iconContainer.classList.add('error');
+        errMsgContainer.classList.add('error');
         errorMessage.innerHTML= 'This is not a valid email';
         errorCount++;
     } else {
         addEmail();
         errorCount = 0;
-        emailInput.classList.remove('error');
-        emailInput.classList.add('success');
+        iconContainer.classList.remove('error');
+        errMsgContainer.classList.remove('error');
+        iconContainer.classList.add('success');
         errorMessage.innerHTML= '';
     }
 
@@ -62,6 +68,7 @@ const dropContent = document.querySelector('.dropdwn-content');
 // function to open drop down
 function openDropDown() {
     dropContent.style.visibility = ('visible');
+    showEmails();
 }
 
 //function to close dropdown
@@ -80,33 +87,22 @@ dropBtn.addEventListener('click', function(){
 
 //function to display the emails into the dropdown
 //// The email are looped through to display into dropdown content
-function showEmails(dropContent) {
+function showEmails() {
 
     // first empty the content
     $(dropContent).empty();
+    counter = 1;
 
     // loop through the emails in the array and append a span into the content container
     $.each(emailsWithImages, function(i, images){
-        $(dropContent).append("<option value='" + i + "' class='email'>" + i +"</option>");
+        $(dropContent).append("<span id='d" + counter + "' class='email_container'>" + i + "</span>");
+        let thismail = document.querySelector("#d" + counter);
+        thismail.addEventListener("click", (e) => {
+            email.value = e.currentTarget.innerText;
+            closeDropDown();
+        })
+        counter++;
         console.log(email);
         console.log(i);
     });
 }
-
-
-//========================================================================
-// Code i tried using to change which email was selected
-//========================================================================
-
-
-// $(document).on("change", ".emailSelection", function() {
-// 	// $(this) gets the input element that the .change is referring to
-// 	changeEmail($(this));
-// });
-
-// function changeEmail(emailSelect) {	
-// 	// gets you the value thats been selected in the 
-// 	var selectedEmail = emailSelect.find(":selected").val();
-//     console.log(selectedEmail);
-// 	$(".email").val(selectedEmail).change();
-// }

@@ -30,15 +30,11 @@
 
     width: 100%;
     
-    padding: 20px;
     border-radius: 20px;
     box-shadow: $color-shadow;
 }
 
 .selection-wrapper{
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
     background-color: $color-accent;
 
     width: 100%;
@@ -76,7 +72,7 @@
 
 .button-container{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     flex-wrap: wrap;
 }
@@ -84,18 +80,27 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 40px;
 }
-.email-container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: $white;
-    position: relative;
-}
+.email_container{
+    background-color: #f9f9f9;
+    width: 100%;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    color: rgb(87, 85, 85);
+    padding: 5px;
+    padding-left: 15px;
+    cursor: pointer;
+    
+    &:hover{
+        background-color: darken(#f9f9f9, 10%);
+    }
+  }
 .heading-container{
     display: flex;
     flex-direction: column;
     align-items: center;
+    color: $white;
     h2{
         margin-bottom: 10px !important;
     }
@@ -108,16 +113,6 @@
         font-size: 1.5em;
     }
 
-    .email-input i {
-        top: 130px !important;
-        right: 35px !important; 
-    }
-
-    .drop-btn i {
-        right: 10px !important;
-        top: 15px !important;
-    }
-
     .dropdwn-content{
         width: 241px !important;
         right: -4px !important;
@@ -125,29 +120,52 @@
 
 }
 
-.email-input i {
+@media (min-width: $breakpoint-sm){
+    .icon-container{
+        right: -260px !important;
+    }
+}
+
+.email-input{
+    margin-bottom: 40px;
+}
+
+.icon-container{
+    height: 47px;
+    position: relative;
+    width: 47px;
+    right: -190px;
+    top: -22px;
+    z-index: 12;
+}
+
+.icon-container i {
     position: absolute;
-    top: 150px;
-    right: 75px;
     visibility: hidden;
 }
 
-.email-input small {
-    visibility: hidden;
-    left: 0;
+.err-msg_container{
+    position: relative;
+    top: -40px;
+    color: $white;
 }
 
-.email-input.success i.fa-circle-check{
+.error-message {
+    visibility: hidden;
+    position: absolute;
+}
+
+.icon-container.success i.fa-circle-check{
     color: $success;
     visibility: visible;
 }
 
-.email-input.error i.fa-circle-exclamation{
+.icon-container.error i.fa-circle-exclamation{
     color: $error;
     visibility: visible;
 }
 
-.email-input.error small{
+.err-msg_container.error small{
     color: $white;
     visibility: visible;
 }
@@ -157,19 +175,18 @@
 }
 
 .drop-search{
-    display: flex;
-    align-items: center;
-    flex-wrap: nowrap;
-    flex-direction: row;
+    display: block;
+    width: 100%;
+    position: relative
 }
 
 .dropdwn-content {
     position: absolute;
+    top: 47px;
     background-color: #f9f9f9;
-    width: 242px;
+    width: 100%;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-    right: 35px;
+    z-index: 10;
     visibility: hidden;
     display: flex;
     flex-direction: column;
@@ -189,16 +206,11 @@
   }
 
 
+
 .stored-img{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     flex-wrap: wrap;
-}
-
-@media (min-width: $breakpoint-sm) {
-    .stored-img{
-        flex-direction: row;
-        justify-content: center;
-    }
+    justify-content: center;
 }
