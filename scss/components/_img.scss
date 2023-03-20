@@ -8,4 +8,20 @@
 .selected-image{
     margin: 5px;
     border-radius: 8px;
+    position: relative;
+}
+
+.selected-img_container{
+    top: 0;
+    position: relative;
+    transition: 0.5s ease !important;
+    cursor: pointer;
+    &:hover{
+        top: -10px;
+        transition: 0.5s ease !important;
+
+        .close{
+            display: block;
+        }
+    }
 }

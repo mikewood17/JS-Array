@@ -36,16 +36,18 @@ function addEmail(){
 // Function that displays all of the images for a certain email.
 // The array of image urls for said email are passed into the method and become the storedImages array. 
 function displayImagesForEmail(storedImages) {
+
 	// First empty the savedImgContainer so that no images for other emails remain in the box. 
 	$(savedImgContainer).empty();
-	
+	// make a counter for the id
+	counter = 1;
 	// Loop through the storedImages array and for each one append a picture to the now empty savedImgContainer div.
 	$.each(storedImages, function (i, img) {
-		$(savedImgContainer).append("<img src='" + img + "' alt='random img' class='selected-image'>");
+		$(savedImgContainer).append("<div id='I" + counter + "' class='selected-img_container'><img src='" + img + "' alt='random img' class='selected-image'></div>");
+		counter++;
 	});
+	
 }
-
-
 
 // Function that adds the email to the emailsWithImages object. 
 // email that is passed to the method is from main.js
@@ -82,6 +84,7 @@ if (isExistingImg) {
 		// Passing emailsWithImages[email] to the function means we just send the array of image urls associated with the certain email.  
 		displayImagesForEmail(emailsWithImages[email]);
 		showEmails(dropContent);
+		console.log(emailsWithImages);
 	}
 }
 

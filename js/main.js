@@ -99,6 +99,7 @@ function showEmails() {
         let thismail = document.querySelector("#d" + counter);
         thismail.addEventListener("click", (e) => {
             email.value = e.currentTarget.innerText;
+            displayImagesForEmail(emailsWithImages[email.value]);
             closeDropDown();
         })
         counter++;
